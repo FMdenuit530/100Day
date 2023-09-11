@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0001-熟悉</title>
+    <style>
+      #box {
+        background-color: red;
+        width: 500px;
+        height: 200px;
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+  </body>
+</html>
+<script>
+  let a = document.getElementById('box')
+  window.addEventListener('click', (event) => {
+    let co = getComputedStyle(a, null).margin
+    let pp = (a.style.margin = parseInt(co) + 100 + `px`)
+  })
+</script>
