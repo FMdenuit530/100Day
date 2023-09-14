@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0004-柯里化</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let arr = []
+  function addCurry() {
+    let arg = Array.prototype.slice.call(arguments)
+    //Array.prototype.slice.call(arguments)的作用是将函数传入的参数转换为数组对象
+    arr = arr.concat(arg)
+    if (arg.length === 0) {
+      return arr.reduce((a, b) => {
+        return a + b
+      })
+    } else {
+      return addCurry
+    }
+  }
+
+  console.log(addCurry(1)(2)(3)())
+
+  // let arc = []
+  // function addCurryTwo() {
+  //   let arg = Array.from(arguments)
+  //   //Array.from() 方法对一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。也就是说可以通关这个方法吧类数组变成数组
+  //   arc = arc.concat(arg)
+  //   if (arg.length === 0) {
+  //     return arc.reduce((a, b) => {
+  //       return a + b
+  //     })
+  //   } else {
+  //     return addCurryTwo
+  //   }
+  // }
+  // console.log(addCurryTwo(1)(2)(3)())
+</script>
